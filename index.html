@@ -29,6 +29,8 @@
   #indice .nombre { order:0; color:var(--tinta); font-size:1.25rem; font-weight:600; }
   #indice .escuchar { order:2; color:var(--azul); font-size:.95rem; text-decoration:none; }
   #indice .escuchar:hover, #indice .escuchar:focus-visible { text-decoration:underline; }
+  #buscador { width:100%; padding:.6rem .9rem; margin:.8rem 0 0; font-family:inherit; font-size:1rem; border:2px solid var(--azul-claro); border-radius:6px; }
+  #buscador:focus { outline:none; border-color:var(--azul); }
 
   /* Cada receta se muestra sola al pulsar en el índice */
   article { display:none; }
@@ -62,10 +64,11 @@
        El texto después de href="#" debe ser IGUAL que el id de su receta más abajo -->
   <section id="indice">
     <h2>Recetas</h2>
+    <input type="text" id="buscador" placeholder="Buscar receta..." oninput="filtrarRecetas()">
     <ul>
       <li><span class="nombre">Tortilla de papas</span><a class="escuchar" href="#tortilla-de-papas">escuchar</a></li>
       <li><span class="nombre">Lentejas</span><a class="escuchar" href="#Lentejas">escuchar</a></li>
-      
+  
     </ul>
   </section>
   
@@ -137,5 +140,14 @@
 <footer>Con cariño para toda la familia, Navidad 2026</footer>
 
 </div>
+  <script>
+function filtrarRecetas() {
+ const texto = document.getElementById('buscador').value.toLowerCase();
+  document.querySelectorAll('#indice li').forEach(function(li) {
+    const nombre = li.querySelector('.nombre').textContent.toLowerCase();
+    li.style.display = nombre.includes(texto) ? '' : 'none';
+  });
+}
+</script>
 </body>
 </html>
