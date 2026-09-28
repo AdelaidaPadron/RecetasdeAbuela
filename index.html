@@ -26,9 +26,9 @@
   #indice ul { list-style:none; padding:0; margin:1rem 0 0; }
   #indice li { display:flex; align-items:baseline; gap:.6rem; margin-bottom:.7rem; }
   #indice li::after { content:""; order:1; flex:1; border-bottom:2px dotted var(--azul-claro); }
-  #indice a { order:0; color:var(--tinta); font-size:1.25rem; font-weight:600; text-decoration:none; }
-  #indice a:hover, #indice a:focus-visible { color:var(--azul); text-decoration:underline; }
-  #indice li span { order:2; color:var(--azul); font-size:.95rem; }
+  #indice .nombre { order:0; color:var(--tinta); font-size:1.25rem; font-weight:600; }
+  #indice .escuchar { order:2; color:var(--azul); font-size:.95rem; text-decoration:none; }
+  #indice .escuchar:hover, #indice .escuchar:focus-visible { text-decoration:underline; }
 
   /* Cada receta se muestra sola al pulsar en el índice */
   article { display:none; }
@@ -63,8 +63,8 @@
   <section id="indice">
     <h2>Recetas</h2>
     <ul>
-      <li><a href="#tortilla-de-papas">Tortilla de papas</a><span>escuchar</span></li>
-      <li><a href="#lentejas">lentejas</a><span>escuchar</span></li>
+      <li><span class="nombre">Tortilla de papas</span><a class="escuchar" href="#tortilla-de-papas">escuchar</a></li>
+      <li><span class="nombre">Lentejas</span><a class="escuchar" href="#Lentejas">escuchar</a></li>
       
     </ul>
   </section>
